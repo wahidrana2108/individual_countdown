@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Our Courses | By Muhammad Salman</title>
+	<link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+
+	<div class="container">
+		<div class="wrapper">
+			<h1>Our Courses</h1>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ex, molestias!</p>
+		</div>
+	</div>
+
+	<div class="courses">
+		<div class="course">
+			<div class="course-header">
+				<img src="./assets/images/c1.jpg" alt="">
+			</div>
+			<div class="course-body">
+				<h3>Web Development</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur impedit laudantium, voluptatem optio</p>
+			</div>
+			<div class="course-countdown">
+				<h3>Registration open</h3>
+				<ul data-countdown="2020-10-12">
+					<li data-days="00">00</li>
+					<li data-hours="00">00</li>
+					<li data-minuts="00">00</li>
+					<li data-seconds="00">00</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="course">
+			<div class="course-header">
+				<img src="./assets/images/c2.jpg" alt="">
+			</div>
+			<div class="course-body">
+				<h3>Web Development</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur impedit laudantium, voluptatem optio</p>
+			</div>
+			<div class="course-countdown">
+				<h3>Registration open</h3>
+				<ul data-countdown="2020-10-11">
+					<li data-days="00">00</li>
+					<li data-hours="00">00</li>
+					<li data-minuts="00">00</li>
+					<li data-seconds="00">00</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="course">
+			<div class="course-header">
+				<img src="./assets/images/c3.jpg" alt="">
+			</div>
+			<div class="course-body">
+				<h3>Web Development</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur impedit laudantium, voluptatem optio</p>
+			</div>
+			<div class="course-countdown">
+				<h3>Registration open</h3>
+				<ul data-countdown="2020-10-10">
+					<li data-days="00">00</li>
+					<li data-hours="00">00</li>
+					<li data-minuts="00">00</li>
+					<li data-seconds="00">00</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="course">
+			<div class="course-header">
+				<img src="./assets/images/c4.jpg" alt="">
+			</div>
+			<div class="course-body">
+				<h3>Web Development</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur impedit laudantium, voluptatem optio</p>
+			</div>
+			<div class="course-countdown">
+				<h3>Registration open</h3>
+				<ul data-countdown="2020-10-9">
+					<li data-days="00">00</li>
+					<li data-hours="00">00</li>
+					<li data-minuts="00">00</li>
+					<li data-seconds="00">00</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="course">
+			<div class="course-header">
+				<img src="./assets/images/c5.jpg" alt="">
+			</div>
+			<div class="course-body">
+				<h3>Web Development</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur impedit laudantium, voluptatem optio</p>
+			</div>
+			<div class="course-countdown">
+				<h3>Registration open</h3>
+				<ul data-countdown="2020-10-7">
+					<li data-days="00">00</li>
+					<li data-hours="00">00</li>
+					<li data-minuts="00">00</li>
+					<li data-seconds="00">00</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="course">
+			<div class="course-header">
+				<img src="./assets/images/c1.jpg" alt="">
+			</div>
+			<div class="course-body">
+				<h3>Web Development</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur impedit laudantium, voluptatem optio</p>
+			</div>
+			<div class="course-countdown">
+				<h3>Registration open</h3>
+				<ul data-countdown="2020-10-8">
+					<li data-days="00">00</li>
+					<li data-hours="00">00</li>
+					<li data-minuts="00">00</li>
+					<li data-seconds="00">00</li>
+				</ul>
+			</div>
+		</div>
+
+	</div>
+
+	<script src="./assets/js/jquery.js"></script>
+
+	<script>
+		
+		$('[data-countdown]').each(function(){
+			var $deadline = new Date($(this).data('countdown')).getTime();
+
+			var $dataDays = $(this).children('[data-days]');
+			var $dataHours = $(this).children('[data-hours]');
+			var $dataMinuts = $(this).children('[data-minuts]');
+			var $dataSeconds = $(this).children('[data-seconds]');
+
+			var x = setInterval(function(){
+
+				var now = new Date().getTime();
+				var t = $deadline - now;
+
+				var days = Math.floor(t/(1000*60*60*24));
+				var hours = Math.floor(t%(1000*60*60*24) / (1000*60*60));
+				var minuts = Math.floor(t%(1000*60*60) / (1000*60));
+				var seconds = Math.floor(t%(1000*60) / (1000));
+
+				if( days < 10 ){
+					days = '0'+days;
+				}
+
+				if( hours < 10 ){
+					hours = '0'+hours;
+				}
+
+				if( minuts < 10 ){
+					minuts = '0'+minuts;
+				}
+
+				if( seconds < 10 ){
+					seconds = '0'+seconds;
+				}
+
+				$dataDays.html(days);
+				$dataHours.html(hours);
+				$dataMinuts.html(minuts);
+				$dataSeconds.html(seconds);
+
+
+				if( t <= 0 ){
+					clearInterval(x);
+
+					$dataDays.html('00');
+					$dataHours.html('00');
+					$dataMinuts.html('00');
+					$dataSeconds.html('00');
+
+				}
+
+
+
+			},1000);
+		})
+
+	</script>
+	
+</body>
+</html>
